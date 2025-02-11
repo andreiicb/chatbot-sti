@@ -1,55 +1,81 @@
-Funcionalidades actuales
-Manejo de mensajes:
+# 📌 Chatbot WhatsApp API
 
-El controlador MessagesController está configurado para recibir mensajes entrantes a través de una solicitud POST en la ruta /messages.
+Este proyecto es una API para manejar mensajes de WhatsApp utilizando la plataforma Gupshup. Permite recibir mensajes entrantes, procesar webhooks y enviar mensajes de WhatsApp.
 
-El servicio MessagesService procesa el mensaje recibido (por ahora solo lo imprime en la consola).
+---
 
-Manejo de webhooks:
+## 🚀 Funcionalidades
 
-El controlador WebhookController está configurado para recibir datos de webhook a través de una solicitud POST en la ruta /webhook.
+### ✉️ Manejo de Mensajes
+- 📥 **Recepción de Mensajes:**
+  - El `MessagesController` maneja solicitudes `POST` en la ruta `/messages`.
+  - El `MessagesService` procesa los mensajes recibidos (actualmente solo los imprime en la consola).
 
-El servicio WebhookService procesa los datos del webhook (por ahora solo los imprime en la consola).
+### 🔔 Manejo de Webhooks
+- 📡 **Recepción de Webhooks:**
+  - El `WebhookController` maneja solicitudes `POST` en la ruta `/webhook`.
+  - El `WebhookService` procesa los datos recibidos (actualmente solo los imprime en la consola).
 
-Envío de mensajes de WhatsApp:
+### 📲 Envío de Mensajes de WhatsApp
+- 💬 **Envío de Mensajes:**
+  - El `WhatsappController` maneja solicitudes `POST` en la ruta `/whatsapp/send`.
+  - El `WhatsappService` utiliza la API de Gupshup para enviar mensajes de WhatsApp.
 
-El controlador WhatsappController está configurado para enviar mensajes de WhatsApp a través de una solicitud POST en la ruta /whatsapp/send.
+### 🏠 Ruta Principal
+- 🌍 **Bienvenida:**
+  - El `AppController` tiene una ruta `GET /` que devuelve el mensaje: **"Chatbot WhatsApp API"**.
 
-El servicio WhatsappService utiliza la API de Gupshup para enviar mensajes de WhatsApp.
+---
 
-Ruta principal:
+## 🛠️ Cómo ejecutar y probar la aplicación
 
-El controlador AppController tiene una ruta GET en la raíz (/) que devuelve un mensaje simple: "Chatbot WhatsApp API".
-
-Cómo ejecutar y probar la aplicación
-Instala las dependencias:
-
-Asegúrate de tener todas las dependencias instaladas. Ejecuta:
-
-bash
-Copy
+### 1️⃣ Instalar dependencias
+Asegúrate de tener Node.js instalado y ejecuta el siguiente comando:
+```bash
 npm install
-Inicia el servidor:
+```
 
-Ejecuta el servidor con el siguiente comando:
-
-bash
-Copy
+### 2️⃣ Iniciar el servidor
+Ejecuta el siguiente comando para iniciar la aplicación:
+```bash
 npm run start
-Esto iniciará la aplicación en http://localhost:3000.
+```
+🔹 Esto iniciará el servidor en `http://localhost:3000`.
 
-Prueba las rutas:
+### 3️⃣ Probar las rutas
+Usa Postman, cURL o cualquier herramienta similar para probar las siguientes rutas:
 
-Usa una herramienta como Postman o curl para probar las rutas:
+- **Ver mensaje de bienvenida**
+  ```bash
+  GET http://localhost:3000/
+  ```
 
-GET en http://localhost:3000/ para ver el mensaje de bienvenida.
+- **Simular un mensaje entrante**
+  ```bash
+  POST http://localhost:3000/messages
+  ```
 
-POST en http://localhost:3000/messages para simular un mensaje entrante.
+- **Simular un webhook**
+  ```bash
+  POST http://localhost:3000/webhook
+  ```
 
-POST en http://localhost:3000/webhook para simular un webhook.
+- **Enviar un mensaje de WhatsApp**
+  ```bash
+  POST http://localhost:3000/whatsapp/send
+  ```
 
-POST en http://localhost:3000/whatsapp/send para enviar un mensaje de WhatsApp.
+### 4️⃣ Configurar el Webhook en Gupshup
+Para recibir mensajes entrantes en tu servidor:
+1. Accede a la configuración de tu bot en **Gupshup**.
+2. Establece el webhook apuntando a tu servidor, por ejemplo:
+   ```
+   https://tudominio.com/webhook
+   ```
 
-Configura el webhook en Gupshup:
+---
 
-Ve a la configuración de tu bot en Gupshup y establece el webhook para que apunte a tu servidor (por ejemplo, https://tudominio.com/webhook).
+## 🎯 Contribución
+Si deseas contribuir a este proyecto, ¡eres bienvenido! Puedes hacer un fork y enviar un pull request con mejoras.
+
+📌 **¡Feliz desarrollo! 🚀**
