@@ -1,18 +1,12 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import { Controller, Post, Body } from '@nestjs/common';
 import { WhatsappService } from './whatsapp.service';
 
-describe('WhatsappService', () => {
-  let service: WhatsappService;
+@Controller('whatsapp')
+export class WhatsappController {
+  constructor(private readonly whatsappService: WhatsappService) {}
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      providers: [WhatsappService],
-    }).compile();
-
-    service = module.get<WhatsappService>(WhatsappService);
-  });
-
-  it('should be defined', () => {
-    expect(service).toBeDefined();
-  });
-});
+  @Post('send')
+  async sendMessage(@Body() message: any) {
+    return this.whatsappService.sendWhatsappMessage(message);
+  }
+}

@@ -2,8 +2,9 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class WebhookService {
-  async processWebhook(body: any): Promise<any> {
+  async processWebhook(webhookData: any) {
     // Lógica para procesar el webhook
-    return { success: true };
+    console.log('Webhook recibido:', webhookData);
+    return { status: 'Webhook procesado' };
   }
 }
