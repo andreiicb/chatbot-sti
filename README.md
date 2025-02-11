@@ -76,7 +76,4 @@ Para recibir mensajes entrantes en tu servidor:
 
 ---
 
-## 🎯 Contribución
-Si deseas contribuir a este proyecto, ¡eres bienvenido! Puedes hacer un fork y enviar un pull request con mejoras.
-
-📌 **¡Feliz desarrollo! 🚀**
+## 🎯 📌 ¡Happy coding! 🚀
