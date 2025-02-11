@@ -33,6 +33,7 @@ Este proyecto es una API para manejar mensajes de WhatsApp utilizando la platafo
 Asegúrate de tener Node.js instalado y ejecuta el siguiente comando:
 ```bash
 npm install
+npm install dotenv
 ```
 
 ### 2️⃣ Iniciar el servidor
