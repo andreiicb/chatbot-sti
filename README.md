@@ -1,6 +1,6 @@
 # 📌 Chatbot WhatsApp API
 
-Este proyecto es una API para manejar mensajes de WhatsApp utilizando la plataforma Gupshup. Permite recibir mensajes entrantes, procesar webhooks y enviar mensajes de WhatsApp.
+Este proyecto es una API para manejar mensajes de WhatsApp utilizando la plataforma de Meta. Permite recibir mensajes entrantes, procesar webhooks y enviar mensajes de WhatsApp.
 
 ---
 
@@ -19,7 +19,7 @@ Este proyecto es una API para manejar mensajes de WhatsApp utilizando la platafo
 ### 📲 Envío de Mensajes de WhatsApp
 - 💬 **Envío de Mensajes:**
   - El `WhatsappController` maneja solicitudes `POST` en la ruta `/whatsapp/send`.
-  - El `WhatsappService` utiliza la API de Gupshup para enviar mensajes de WhatsApp.
+  - El `WhatsappService` utiliza la API de Meta para enviar mensajes de WhatsApp.
 
 ### 🏠 Ruta Principal
 - 🌍 **Bienvenida:**
@@ -66,9 +66,9 @@ Usa Postman, cURL o cualquier herramienta similar para probar las siguientes rut
   POST http://localhost:3000/whatsapp/send
   ```
 
-### 4️⃣ Configurar el Webhook en Gupshup
+### 4️⃣ Configurar el Webhook en Meta
 Para recibir mensajes entrantes en tu servidor:
-1. Accede a la configuración de tu bot en **Gupshup**.
+1. Accede a la configuración de tu bot en **Meta**.
 2. Establece el webhook apuntando a tu servidor, por ejemplo:
    ```
    https://tudominio.com/webhook

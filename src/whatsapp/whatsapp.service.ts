@@ -4,14 +4,33 @@ import axios from 'axios';
 
 @Injectable()
 export class WhatsappService {
-  async sendWhatsappMessage(message: any) {
-    const url = `${appConfig.gupshupApiUrl}/messages`;
-    const response = await axios.post(url, message, {
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': appConfig.apiKey,
-      },
-    });
-    return response.data;
+  /**
+   * Envía un mensaje de WhatsApp a través de la API de Meta.
+   * @param to Número de teléfono del destinatario.
+   * @param text Contenido del mensaje.
+   */
+  async sendWhatsappMessage(to: string, text: string) {
+    const url = `${appConfig.metaApiUrl}/${appConfig.metaPhoneNumberId}/messages`;
+
+    const payload = {
+      messaging_product: 'whatsapp',
+      to: to,
+      text: { body: text },
+    };
+
+    try {
+      const response = await axios.post(url, payload, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${appConfig.metaAccessToken}`,
+        },
+      });
+
+      console.log('Mensaje enviado correctamente:', response.data);
+      return response.data;
+    } catch (error) {
+      console.error('Error al enviar el mensaje:', error.response?.data || error.message);
+      throw error;
+    }
   }
 }
